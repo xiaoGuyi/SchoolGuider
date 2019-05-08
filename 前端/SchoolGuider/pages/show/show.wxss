@@ -1,0 +1,5 @@
+/* pages/show/show.wxss */
+
+.picker{
+    background-color: #FFFFFF;
+}

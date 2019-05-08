@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<!-- <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="generateQRCode">生成二维码</i-button> -->
+<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="selectLanguage">生成二维码</i-button>
+
+<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="scanQRCode">扫描二维码</i-button>

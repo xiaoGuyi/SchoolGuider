@@ -1,0 +1,29 @@
+<!--pages/input/input.wxml-->
+<view style="margin-left: 10rpx;">
+	<picker bindchange="bindPickerChange" value="{{pageIndex}}" range="{{languages}}">
+    <view class="picker" style="margin-bottom: 20rpx;">
+      {{staticText[pageIndex][0]}}{{languages[pageIndex]}}
+    </view>
+  </picker>
+	<view>
+		<text>{{staticText[pageIndex][1]}}</text>
+		<view style="display: block; position: relative; top: 10rpx;">{{scenicName}}</view>
+	</view>
+
+	<view style="margin-top: 20rpx;">
+		<text>{{staticText[pageIndex][2]}}</text>
+		<view style="height: 160rpx;">{{scenicIntroduce}}</view>
+	</view>
+
+	<view style="margin-top: 20rpx;">
+		<text>{{staticText[pageIndex][3]}}</text>
+		<i-button bind:click="showVoice" shape="circle" inline="true" type="info" size="small">{{staticText[pageIndex][4]}}</i-button>
+	</view>
+
+	<view style="margin-top: 20rpx;">
+		<view><text>{{staticText[pageIndex][5]}}</text></view>
+		<block wx:for="{{imageUrls}}">
+			<image style="width: 140rpx; height: 170rpx; margin-left: 20rpx;" mode="" src="{{item}}" binderror="" bindload=""></image>
+		</block>
+	</view>
+</view>

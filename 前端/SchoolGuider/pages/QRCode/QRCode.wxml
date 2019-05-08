@@ -1,0 +1,8 @@
+<!--pages/QRCode/QRCode.wxml-->
+<view style="text-align: center;">
+	<canvas class='canvas' style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas' bindlongtap='save'></canvas>
+</view>
+
+<view style="text-align: center;">长按保存</view>
+
+<i-button bind:click="back" size="small" type="info" shape="circle">点击返回</i-button>

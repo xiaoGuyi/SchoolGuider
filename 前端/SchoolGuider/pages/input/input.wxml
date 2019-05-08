@@ -1,0 +1,33 @@
+<!--pages/input/input.wxml-->
+<view style="margin-left: 10rpx;">
+	<view>第{{pageIndex+1}}页，当前语种为{{pageIntroduce[pageIndex]}}</view>
+	<view>
+		<text> 景点名称： </text>
+		<input style="display: inline-block; position: relative; top: 10rpx;" placeholder="name" value="" type="text" placeholder-style="custom-placeholder-style" placeholder-class="custom-placeholder-class" bindchange="" bindinput="nameInput" bindfocus="" bindblur="" auto-focus/>
+	</view>
+
+	<view style="margin-top: 20rpx;">
+		<text> 景点介绍： </text>
+		<textarea style="height: 160rpx;" value="" placeholder="the introduce of the scenic" placeholder-style="" bindinput="introduceInput" placeholder-class="" bindfocus="" bindblur="" />
+	</view>
+
+	<view style="margin-top: 20rpx;">
+		<text> 景点语音： </text>
+		<i-button bind:click="uploadVoice" class="button" inline="true" type="info" size="small">上传文件</i-button>
+	</view>
+
+	<view style="margin-top: 20rpx;">
+		<view><text> 景点图片： </text></view>
+		<block wx:for="{{imageUrls}}">
+			<image style="width: 140rpx; height: 170rpx; margin-left: 20rpx;" mode="" src="{{item}}" binderror="" bindload=""></image>
+		</block>
+		<image style="width: 120rpx; height: 150rpx; margin-left: 20rpx;" mode="" src="../../dist/images/add_image.jpg" binderror="" bindload="" bindtap="addImage"></image>
+	</view>
+
+	<view style="margin-top: 30rpx;">
+			<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="generateQRCode">生成二维码</i-button>
+		<!-- <block wx:else>
+			<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="nextPage">下一页</i-button>
+		</block> -->
+	</view>
+</view>

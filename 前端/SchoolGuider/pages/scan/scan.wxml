@@ -1,0 +1,2 @@
+<!--pages/scan/scan.wxml-->
+<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="scan">点击扫描</i-button>
