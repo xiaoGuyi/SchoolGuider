@@ -28,3 +28,11 @@
 0:0:0:0:0:0:0:1 - - [08/May/2019:14:49:59 +0800] "GET /school_guider/record/get_recordCN/1 HTTP/1.1" 500 5396 http-bio-8080-exec-1 2711
 0:0:0:0:0:0:0:1 - - [08/May/2019:14:54:31 +0800] "GET /school_guider/record/get_recordCN/1 HTTP/1.1" 200 241 http-bio-8080-exec-1 2619
 0:0:0:0:0:0:0:1 - - [08/May/2019:14:54:44 +0800] "GET /school_guider/record/get_recordCN/1 HTTP/1.1" 200 241 http-bio-8080-exec-4 163
+0:0:0:0:0:0:0:1 - - [08/May/2019:15:18:52 +0800] "GET /school_guider/record/get_recordCN/1 HTTP/1.1" 200 241 http-bio-8080-exec-6 174
+127.0.0.1 - - [08/May/2019:16:17:13 +0800] "GET /school_guider/jsp/test.jsp HTTP/1.1" 200 91 http-bio-8080-exec-8 332
+127.0.0.1 - - [08/May/2019:16:17:26 +0800] "GET /school_guider/upload/1554016095705.jpg HTTP/1.1" 200 325472 http-bio-8080-exec-10 168
+127.0.0.1 - - [08/May/2019:16:17:26 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-10 0
+127.0.0.1 - - [08/May/2019:16:18:00 +0800] "GET /school_guider/upload/1554016095705.jpg HTTP/1.1" 304 - http-bio-8080-exec-10 140
+127.0.0.1 - - [08/May/2019:16:18:11 +0800] "GET /school_guider/upload/ HTTP/1.1" 404 949 http-bio-8080-exec-10 32
+127.0.0.1 - - [08/May/2019:16:18:15 +0800] "GET /school_guider/upload/http://127.0.0.1:8080/school_guider/upload/1554016095705.jpg HTTP/1.1" 404 949 http-bio-8080-exec-10 6
+0:0:0:0:0:0:0:1 - - [08/May/2019:21:04:08 +0800] "GET /school_guider/record/get_recordCN HTTP/1.1" 200 321 http-bio-8080-exec-1 1716

@@ -17,6 +17,8 @@
 
     <mapping class="bean.ScenicBean"/>
     <mapping class="bean.Scenery_CN_Bean"/>
+    <mapping class="bean.Scenery_EN_Bean"/>
+    <mapping class="bean.Scenery_JA_Bean"/>
     <mapping class="database.TestBean"/>
 
   </session-factory>

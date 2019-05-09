@@ -2,6 +2,8 @@ package controller;
 
 import bean.DBTool;
 import bean.Scenery_CN_Bean;
+import bean.Scenery_EN_Bean;
+import bean.Scenery_JA_Bean;
 import bean.ScenicBean;
 import bean.UserRecords;
 import com.google.gson.Gson;
@@ -119,6 +121,24 @@ public class UploadController {
         System.out.println( scenery_CN_Bean );
         Scenery_CN_Bean scenery_CN_Bean1 = (Scenery_CN_Bean) DBTool.INSTANCE.save(scenery_CN_Bean);
         return String.valueOf(scenery_CN_Bean1.getId());
+    }
+
+    @RequestMapping("/uploadRecordsEN")
+
+    public String uploadRecordsEN(Scenery_EN_Bean scenery_EN_Bean) {
+        System.out.println( "begin to upload record" );
+        System.out.println( scenery_EN_Bean );
+        Scenery_EN_Bean scenery_EN_Bean1 = (Scenery_EN_Bean) DBTool.INSTANCE.save(scenery_EN_Bean);
+        return String.valueOf(scenery_EN_Bean1.getId());
+    }
+
+    @RequestMapping("/uploadRecordsJA")
+
+    public String uploadRecordsCN(Scenery_JA_Bean scenery_JA_Bean) {
+        System.out.println( "begin to upload record" );
+        System.out.println( scenery_JA_Bean );
+        Scenery_JA_Bean scenery_JA_Bean1 = (Scenery_JA_Bean) DBTool.INSTANCE.save(scenery_JA_Bean);
+        return String.valueOf(scenery_JA_Bean1.getId());
     }
 
     @RequestMapping("/get_expression")
