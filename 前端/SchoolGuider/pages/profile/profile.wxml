@@ -1,0 +1,42 @@
+<!-- 增长bar -->
+<view class="bar" style=' width:{{windowWidth}}px;' ></view>
+<!-- 设置背景 -->
+<view class="background" style=' width:{{windowWidth}}px;height:{{windowHeight}}px;'>
+
+  <block>
+  <!-- 用户信息显示栏 -->
+    <view class="contain" style='width:{{containWidth}}px;height:{{containHight}}px;'>    
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登陆 </button>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+
+    <view class="option" style='border-radius: 8px 8px 2px 2px;width:{{containWidth}}px;'>
+      <navigator>
+        <view class="act-wrapper">
+          <view class="act-item">
+            <view class="bili-icon-history-2"><image src="../../images/feedback.jpg"></image></view>
+            <text class="act-name">问题反馈</text>
+            <span hover-class="none">></span>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="option" style='border-radius:2px 2px 8px 8px;width:{{containWidth}}px;top:2rpx;position:relative;'>
+      <navigator>
+        <view class="act-wrapper">
+        <view class="act-item">
+          <view class="bili-icon-history-2"><image src="../../images/about.jpg"></image></view>
+            <text class="act-name">关于我们</text>
+            <span hover-class="none">></span>
+        </view>
+        </view>
+      </navigator>
+    </view>
+
+  </block>
+
+</view>

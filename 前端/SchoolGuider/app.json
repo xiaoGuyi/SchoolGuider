@@ -1,9 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/introduce/introduce",
+    "pages/profile/profile",
+    "pages/show/show",
     "pages/SelectLanguage/SelectLanguage",
     "pages/search/search",
-    "pages/show/show",
+    
     "pages/scan/scan",
     "pages/input/input",
     "pages/QRCode/QRCode",
@@ -14,5 +17,22 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/introduce/introduce",
+        "iconPath": "./images/introduce1.jpg",
+        "text": "",
+      "selectedIconPath":"./images/introduce2.jpg"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "iconPath": "./images/profile.jpg",
+        "text": "",
+        "selectedIconPath": "./images/profile2.jpg"
+      }
+    ]
   }
 }
