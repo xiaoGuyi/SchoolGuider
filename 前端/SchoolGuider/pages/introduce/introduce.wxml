@@ -1,4 +1,10 @@
+<import src="../../wxParse/wxParse.wxml"/> 
 <view class="bar" style=' width:{{windowWidth}}px;height:50rpx;z-index:0' ></view>
+
 <view class="background" style=' width:{{windowWidth}}px;height:{{windowHeight}}px;z-index:-1;'>
-  <view class="contain" style='width:{{containWidth}}px;height:{{windowHeight}}px;z-index:1;top:-50rpx;position:relative;'></view>
+  <view class="contain" style='width:{{containWidth}}px;height:{{windowHeight}}px;z-index:1;top:-50rpx;position:relative;'>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
 </view>

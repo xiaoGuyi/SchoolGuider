@@ -6,7 +6,7 @@ var that;
 Page({
   data: {
     imageUrls: [],
-    pageIntroduce: [ "英语", "日语", "中文" ],
+    pageIntroduce: ["中文", "英语", "日语"],
     pageIndex: 0,
 
     scenicName: "",
@@ -59,7 +59,7 @@ Page({
       url: util.uploadRecordUrls[1],
       data: {
         "scenicName": app.globalData.scenicNames,
-        "introcude": app.globalData.introduces,
+        "introduce": app.globalData.introduces,
         "voiceName": app.globalData.voiceNames,
         "imageNameList": app.globalData.imageNames
       },

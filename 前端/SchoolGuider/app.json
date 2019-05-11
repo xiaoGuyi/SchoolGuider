@@ -1,14 +1,18 @@
 {
   "pages": [
+    "pages/scan/scan",
+    
+    "pages/SelectLanguage/SelectLanguage",
+
+    "pages/input/input",
     "pages/index/index",
     "pages/introduce/introduce",
     "pages/profile/profile",
     "pages/show/show",
-    "pages/SelectLanguage/SelectLanguage",
     "pages/search/search",
     
-    "pages/scan/scan",
-    "pages/input/input",
+    
+   
     "pages/QRCode/QRCode",
     "pages/logs/logs"
   ],

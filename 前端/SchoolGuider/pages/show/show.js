@@ -63,10 +63,10 @@ Page({
             var voiceName = obj.voiceName.split(';')[that.data.pageIndex];
             var scenicName = obj.scenicName.split(';')[that.data.pageIndex];
             var imageNameList = obj.imageNameList.split(';')[that.data.pageIndex];
-            var introcude = obj.introcude.split(';')[that.data.pageIndex];
+            var introduce = obj.introduce.split(';')[that.data.pageIndex];
             that.setData({
               scenicName: scenicName,
-              scenicIntroduce: introcude,
+              scenicIntroduce: introduce,
               voiceUrl: "http://localhost:8080/school_guider/upload/" + voiceName,
               imageUrls: that.toList( imageNameList )
             })

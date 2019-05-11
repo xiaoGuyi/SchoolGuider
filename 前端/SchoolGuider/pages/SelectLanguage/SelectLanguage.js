@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    languages: ["","English", "Japanese", "中文"],
+    languages: ["","中文", "English", "日语"],
     pageIndex: 0
   },
   bindPickerChange: function (e) {
@@ -15,10 +15,12 @@ Page({
     wx.navigateBack({
       delta: 1
     })
-    wx.navigateTo({
-      url: "../input/input?pageIndex=" + (e.detail.value-1)
-    })
 
+    if(e.detail.value != 0){
+      wx.navigateTo({
+        url: "../input/input?pageIndex=" + (e.detail.value - 1)
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

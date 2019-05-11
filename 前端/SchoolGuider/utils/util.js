@@ -20,8 +20,15 @@ const uploadFileUrl = "http://localhost:8080/school_guider/upload/uploadFile";
 // const getRecordUrl = "http://localhost:8080/school_guider/record/get_record";
 // const getRecordCNUrl = "http://localhost:8080/school_guider/record/get_recordCN";
 
-const uploadRecordUrls = ["http://localhost:8080/school_guider/upload/uploadRecords", "http://localhost:8080/school_guider/upload/uploadRecordsCN"];
-const getRecordUrls = ["http://localhost:8080/school_guider/record/get_record", "http://localhost:8080/school_guider/record/get_recordCN"];
+const uploadRecordUrls = ["http://localhost:8080/school_guider/upload/uploadRecords", 
+                        "http://localhost:8080/school_guider/upload/uploadRecordsCN",
+                        "http://localhost:8080/school_guider/upload/uploadRecordsEN",
+                        "http://localhost:8080/school_guider/upload/uploadRecordsJA",];
+
+const getRecordUrls = ["http://localhost:8080/school_guider/record/get_record", 
+                      "http://localhost:8080/school_guider/record/get_recordCN",
+                      "http://localhost:8080/school_guider/record/get_recordEN",
+                      "http://localhost:8080/school_guider/record/get_recordJA",];
 
 module.exports = {
   formatTime: formatTime,
