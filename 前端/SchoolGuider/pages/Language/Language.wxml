@@ -1,0 +1,9 @@
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view style="margin-left: 10rpx;">
+	<picker bindchange="bindPickerChange" value="{{index}}" range="{{languages}}">
+    <view class="picker" style="margin-bottom: 20rpx;">
+      Language{{languages[index]}}
+    </view>
+  </picker>
+</view>

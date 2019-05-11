@@ -36,7 +36,7 @@ App({
   globalData: {
     userInfo: null,
     recordId: 0,
-
+    index:0,
     scenicNames: "",
     introduces: "",
     imageNames: "",

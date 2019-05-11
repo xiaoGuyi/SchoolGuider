@@ -13,8 +13,8 @@ Page({
       success: (res) => {
         console.log( res );
         app.globalData.recordId = res.result.split(":")[1];
-        wx.switchTab({
-          url: "../introduce/introduce"
+        wx.navigateTo({
+          url: "../Language/Language"
         })
       },
       fail: (res) => {

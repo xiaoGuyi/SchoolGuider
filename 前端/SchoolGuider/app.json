@@ -1,20 +1,18 @@
 {
   "pages": [
-    "pages/scan/scan",
-    
-    "pages/SelectLanguage/SelectLanguage",
-
-    "pages/input/input",
     "pages/index/index",
+    "pages/search/search",
+    
+    "pages/Language/Language",
+    "pages/scan/scan",
+    "pages/SelectLanguage/SelectLanguage",
+    "pages/input/input",
     "pages/introduce/introduce",
     "pages/profile/profile",
     "pages/show/show",
-    "pages/search/search",
-    
-    
-   
     "pages/QRCode/QRCode",
     "pages/logs/logs"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

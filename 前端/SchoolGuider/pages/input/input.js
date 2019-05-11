@@ -13,23 +13,73 @@ Page({
     introduce: "",
     imageNames: [],
     voiceName: "",
+
+    searchData: "",
+    keyword: "",
+    cid:0,
   },
 
-  nextPage() {
-    app.globalData.scenicNames += this.data.scenicName + ";";
-    app.globalData.introduces += this.data.introduce + ";";
-    app.globalData.imageNames += this.getImageNameList() + ";";
-    app.globalData.voiceNames += this.data.voiceName + ";";
+  // nextPage() {
+  //   app.globalData.scenicNames += this.data.scenicName + ";";
+  //   app.globalData.introduces += this.data.introduce + ";";
+  //   app.globalData.imageNames += this.getImageNameList() + ";";
+  //   app.globalData.voiceNames += this.data.voiceName + ";";
 
-    wx.navigateBack({
-      delta: 1
-    })
+  //   wx.navigateBack({
+  //     delta: 1
+  //   })
 
-    wx.navigateTo({
-      url: "../input/input?pageIndex=" + (parseInt(this.data.pageIndex)+1)
+  //   wx.navigateTo({
+  //     url: "../input/input?pageIndex=" + (parseInt(this.data.pageIndex)+1)
+  //   })
+  // },
+  chooseSearchResultAction: function (e) {
+    var index = e.currentTarget.dataset.id;
+    var value = this.data.searchData[index].name;
+    var id = this.data.searchData[index].id;
+    this.setData({
+      keyword: value,
+      cid: id
     })
   },
 
+  /**
+   * 输入监听
+   */
+
+  searchInputAction: function (e) {
+    console.log(e)
+    let that = this
+    let value = e.detail.value
+
+    if (value.length == 0) {
+      this.setData({
+        searchData: []
+      })
+      return
+    }
+
+    wx.request({
+      url: util.getRecordUrls[0],
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      },
+      data: {
+        "search": value
+      },
+      success: function (res) {
+        var searchData;
+        searchData = res.data.map(function (res) {
+          return { key: value, name: res.scenicName, id: res.id }
+        })
+        that.setData({
+          searchData: searchData,
+        })
+      },
+      fail: function (res) { },
+    })
+  },
   // 页内使用逗号分隔，不同语种使用分号分隔
   getImageNameList() {
     var nameList = this.data.imageNames;
@@ -48,33 +98,63 @@ Page({
       title: "正在生成"
     })
     const that = this;
-
-    // 首先把本页内容加载到app.globalData中，然后传到服务器
-    app.globalData.scenicNames += this.data.scenicName + ";";
-    app.globalData.introduces += this.data.introduce + ";";
-    app.globalData.imageNames += this.getImageNameList() + ";";
-    app.globalData.voiceNames += this.data.voiceName + ";";
-
-    wx.request({
-      url: util.uploadRecordUrls[1],
-      data: {
-        "scenicName": app.globalData.scenicNames,
-        "introduce": app.globalData.introduces,
-        "voiceName": app.globalData.voiceNames,
-        "imageNameList": app.globalData.imageNames
-      },
-      success: function( e ) {
-        app.globalData.recordId = e.data;
-        app.globalData.scenicNames = "";
-        app.globalData.introduces = "";
-        app.globalData.imageNames = "";
-        app.globalData.voiceNames = "";
-        wx.hideLoading();
-        wx.navigateTo({
-          url: "../QRCode/QRCode"
-        })
-      }
-    })
+    console.log("cid:" + that.data.cid)
+    if(that.data.pageIndex==0)
+    {
+      // 首先把本页内容加载到app.globalData中，然后传到服务器
+      wx.request({
+        url: util.uploadRecordUrls[this.data.pageIndex],
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        },
+        data: {
+          "scenicName": this.data.scenicName,
+          "introduce": this.data.introduce,
+          "voiceName": this.getImageNameList(),
+          "imageNameList": this.data.voiceName,
+        },
+        success: function (e) {
+          app.globalData.recordId = e.data;
+          wx.hideLoading();
+          wx.navigateTo({
+            url: "../QRCode/QRCode"
+          })
+        }
+      })
+    }
+    else if(that.data.cid!=0){
+      console.log("here")
+      // 首先把本页内容加载到app.globalData中，然后传到服务器
+      wx.request({
+        url: util.uploadRecordUrls[this.data.pageIndex],
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        },
+        data: {
+          "scenicName": this.data.scenicName,
+          "introduce": this.data.introduce,
+          "voiceName": this.getImageNameList(),
+          "imageNameList": this.data.voiceName,
+          "cid":that.data.cid
+        },
+        success: function (e) {
+          app.globalData.recordId = e.data;
+          wx.hideLoading();
+          wx.showToast({
+            title: '上传成功',
+          })
+        }
+      })
+    }
+    else{
+      wx.hideLoading();
+      wx.showModal({
+        title: '请输入对应的中文景点',
+        showCancel:false,
+      })
+    }
   },
 
   addImage() {

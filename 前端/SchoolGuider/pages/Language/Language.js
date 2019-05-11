@@ -1,24 +1,22 @@
 // pages/SelectLanguage/SelectLanguage.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    languages: ["","中文", "English", "日语"],
-
+    languages: ["", "中文", "English", "日语"],
   },
   bindPickerChange: function (e) {
-    // this.setData({
-    //   pageIndex: e.detail.value
-    // })
+
     wx.navigateBack({
       delta: 1
     })
-
-    if(e.detail.value != 0){
-      wx.navigateTo({
-        url: "../input/input?pageIndex=" + (e.detail.value - 1)
+    if (e.detail.value != 0) {
+      app.globalData.index = e.detail.value-1;
+      wx.switchTab({
+        url: "../introduce/introduce"
       })
     }
   },

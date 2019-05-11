@@ -6,3 +6,11 @@
 	padding-left: 20rpx;
 	padding-right: 20rpx;
 }
+.search {
+  margin: 50rpx;
+  border: 1rpx solid #eee;
+  padding: 20rpx;
+}
+.search-content-body {
+  margin: 50rpx;
+}

@@ -1,11 +1,14 @@
 // pages/search/search.js
+const util = require("../../utils/util.js");
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    getRecordUrls: "http://localhost:8080/school_guider/record/get_recordCN"
+    searchData:"",
+    keyword:"",
   },
 
   /**
@@ -15,34 +18,49 @@ Page({
 
   },
 
+  chooseSearchResultAction: function (e) {
+    let that = this
+    var index = e.currentTarget.dataset.id;
+    var value = that.data.searchData[index].name
+    console.log(that.data.searchData[index].id)
+    that.setData({
+      keyword: value
+    })
+  },
+
   /**
    * 输入监听
    */
+  
   searchInputAction: function (e) {
     console.log(e)
     let that = this
     let value = e.detail.value
-    var getRecordUrls = "http://localhost:8080/school_guider/record/get_recordCN" + "/" + value
 
     if (value.length == 0) {
       this.setData({
-        searchResultDatas: []
+        searchData: []
       })
       return
     }
 
     wx.request({
-      url: getRecordUrls,
-      data: '',
-
+      url: util.getRecordUrls[0],
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8', 
+      },
+      data: {
+        "search":value
+        },
       success: function (res) {
         var searchData;
 
         searchData = res.data.map(function (res) {
-          return { key: value, name: res.scenicName }
+          return { key: value, name: res.scenicName ,id:res.id}
         })
         that.setData({
-          searchData,
+          searchData:searchData,
         })
 
       },

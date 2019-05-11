@@ -1,5 +1,5 @@
 /* component/searchHilightTextView.wxss */
-text {
+.item {
   height: 40rpx;
   font-family: PingFangSC;
   font-size: 28rpx;
