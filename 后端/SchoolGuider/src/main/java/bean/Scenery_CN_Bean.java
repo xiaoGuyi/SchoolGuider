@@ -5,15 +5,13 @@ import java.util.Objects;
 
 @Entity
 @Table( name = "scenery_cn", schema = "guider" )
-
 public class Scenery_CN_Bean {
-    @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
+    @Id @GeneratedValue( strategy = GenerationType.AUTO )
     int id;
     @Basic
     String scenicName;
     @Basic
-    String introcude;
+    String introduce;
     @Basic
     String voiceName;
     @Basic
@@ -21,8 +19,8 @@ public class Scenery_CN_Bean {
 
     public Scenery_CN_Bean() {}
 
-    public Scenery_CN_Bean(String introcude, String voiceName, String imageNameList) {
-        this.introcude = introcude;
+    public Scenery_CN_Bean(String introduce, String voiceName, String imageNameList) {
+        this.introduce = introduce;
         this.voiceName = voiceName;
         this.imageNameList = imageNameList;
     }
@@ -35,12 +33,12 @@ public class Scenery_CN_Bean {
         this.id = id;
     }
 
-    public String getIntrocude() {
-        return introcude;
+    public String getintroduce() {
+        return introduce;
     }
 
-    public void setIntrocude(String introcude) {
-        this.introcude = introcude;
+    public void setintroduce(String introduce) {
+        this.introduce = introduce;
     }
 
     public String getVoiceName() {
@@ -71,27 +69,26 @@ public class Scenery_CN_Bean {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ScenicBean that = (ScenicBean) o;
+        Scenery_CN_Bean that = (Scenery_CN_Bean) o;
         return id == that.id &&
-                Objects.equals(introcude, that.introcude) &&
+                Objects.equals(introduce, that.introduce) &&
                 Objects.equals(voiceName, that.voiceName) &&
                 Objects.equals(imageNameList, that.imageNameList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, introcude, voiceName, imageNameList);
+        return Objects.hash(id, introduce, voiceName, imageNameList);
     }
 
     @Override
     public String toString() {
-        return "ScenicBean{" +
+        return "Scenery_CN_Bean{" +
                 "id=" + id +
                 ", scenicName='" + scenicName + '\'' +
-                ", introcude='" + introcude + '\'' +
+                ", introduce='" + introduce + '\'' +
                 ", voiceName='" + voiceName + '\'' +
                 ", imageNameList='" + imageNameList + '\'' +
                 '}';
     }
 }
-

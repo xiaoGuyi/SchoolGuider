@@ -60,5 +60,5 @@ fun main( args: Array<String> ) {
 
     DBTool.destroy()
 
-    println( user.id )
+    println("here"+ user.id )
 }

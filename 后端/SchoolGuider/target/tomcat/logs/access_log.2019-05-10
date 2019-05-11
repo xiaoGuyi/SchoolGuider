@@ -1,0 +1,8 @@
+0:0:0:0:0:0:0:1 - - [10/May/2019:18:12:35 +0800] "GET /school_guider/upload/uploadRecordsCN?scenicName=7%3B&introcude=7%3B&voiceName=%3B&imageNameList=%3B HTTP/1.1" 500 13097 http-bio-8080-exec-1 1262
+0:0:0:0:0:0:0:1 - - [10/May/2019:18:58:59 +0800] "GET /school_guider/upload/uploadRecordsCN?scenicName=7%3B&introcude=7%3B&voiceName=%3B&imageNameList=%3B HTTP/1.1" 500 13097 http-bio-8080-exec-1 1144
+0:0:0:0:0:0:0:1 - - [10/May/2019:20:42:21 +0800] "GET /school_guider/upload/uploadRecordsCN?scenicName=2%3B4%3B&introduce=2%3B4%3B&voiceName=%3B%3B&imageNameList=%3B%3B HTTP/1.1" 500 9534 http-bio-8080-exec-1 1182
+0:0:0:0:0:0:0:1 - - [10/May/2019:20:48:42 +0800] "GET /school_guider/upload/uploadRecordsCN?scenicName=4%3B&introduce=4%3B&voiceName=%3B&imageNameList=%3B HTTP/1.1" 500 8836 http-bio-8080-exec-2 158
+0:0:0:0:0:0:0:1 - - [10/May/2019:20:49:41 +0800] "GET /school_guider/upload/uploadRecordsCN?scenicName=4%3B&introduce=4%3B&voiceName=%3B&imageNameList=%3B HTTP/1.1" 500 8836 http-bio-8080-exec-1 956
+0:0:0:0:0:0:0:1 - - [10/May/2019:20:53:30 +0800] "GET /school_guider/upload/uploadRecordsCN?scenicName=4%3B&introduce=4%3B&voiceName=%3B&imageNameList=%3B HTTP/1.1" 500 13097 http-bio-8080-exec-1 907
+0:0:0:0:0:0:0:1 - - [10/May/2019:20:58:00 +0800] "GET /school_guider/upload/uploadRecordsCN?scenicName=3%3B&introduce=3%3B&voiceName=%3B&imageNameList=%3B HTTP/1.1" 200 1 http-bio-8080-exec-1 1317
+0:0:0:0:0:0:0:1 - - [10/May/2019:20:58:41 +0800] "GET /school_guider/record/get_recordCN HTTP/1.1" 200 81 http-bio-8080-exec-2 553

@@ -73,7 +73,7 @@ public class UploadController {
             }
 
             //自定义上传图片的名字为userId.jpg
-            // request.getAttribute("userId") 获取参数
+            //request.getAttribute("userId");// 获取参数
             fileName =  String.valueOf( Calendar.getInstance().getTimeInMillis() ) + getSuffix((String) request.getAttribute("file_name"));
             String destPath = path + fileName;
             System.out.println( "destPath=" + destPath );
@@ -113,33 +113,31 @@ public class UploadController {
         ScenicBean scenicBean1 = (ScenicBean) DBTool.INSTANCE.save( scenicBean );
         return String.valueOf(scenicBean1.getId());
     }
-
     @RequestMapping("/uploadRecordsCN")
-
+    @ResponseBody
     public String uploadRecordsCN(Scenery_CN_Bean scenery_CN_Bean) {
         System.out.println( "begin to upload record" );
         System.out.println( scenery_CN_Bean );
         Scenery_CN_Bean scenery_CN_Bean1 = (Scenery_CN_Bean) DBTool.INSTANCE.save(scenery_CN_Bean);
         return String.valueOf(scenery_CN_Bean1.getId());
     }
-
     @RequestMapping("/uploadRecordsEN")
-
+    @ResponseBody
     public String uploadRecordsEN(Scenery_EN_Bean scenery_EN_Bean) {
         System.out.println( "begin to upload record" );
         System.out.println( scenery_EN_Bean );
         Scenery_EN_Bean scenery_EN_Bean1 = (Scenery_EN_Bean) DBTool.INSTANCE.save(scenery_EN_Bean);
-        return String.valueOf(scenery_EN_Bean1.getId());
+        return String.valueOf(scenery_EN_Bean1.getCid());
     }
-
     @RequestMapping("/uploadRecordsJA")
-
-    public String uploadRecordsCN(Scenery_JA_Bean scenery_JA_Bean) {
+    @ResponseBody
+    public String uploadRecordsJA(Scenery_JA_Bean scenery_JA_Bean) {
         System.out.println( "begin to upload record" );
         System.out.println( scenery_JA_Bean );
         Scenery_JA_Bean scenery_JA_Bean1 = (Scenery_JA_Bean) DBTool.INSTANCE.save(scenery_JA_Bean);
-        return String.valueOf(scenery_JA_Bean1.getId());
+        return String.valueOf(scenery_JA_Bean1.getCid());
     }
+
 
     @RequestMapping("/get_expression")
     public void getExpression(HttpServletRequest request, HttpServletResponse response) throws Exception {

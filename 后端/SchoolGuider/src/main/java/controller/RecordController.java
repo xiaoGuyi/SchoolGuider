@@ -20,63 +20,40 @@ public class RecordController {
     @RequestMapping( "/get_record" )
     @ResponseBody
     public String get_record() {
+        System.out.println( "begin to get record\n" );
         DBTool.INSTANCE.init();
         List<ScenicBean> list = RecordDao.getRecord();
         DBTool.INSTANCE.destroy();
         return new Gson().toJson( list );
     }
-    @RequestMapping( "/get_recordCN/{search}" )
-    @ResponseBody
-    public String get_recordCN(@PathVariable("search") String data) {
-        DBTool.INSTANCE.init();
-        List<Scenery_CN_Bean> list = RecordDao.getRecordCN(data);
-        DBTool.INSTANCE.destroy();
-        return new Gson().toJson( list );
-    }
 
-    @RequestMapping( "/get_recordCN" )
+    @RequestMapping( value = "/get_recordCN" , produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String get_recordCN() {
+    public String get_recordCN(String search) {
+        System.out.println( "begin to get record\n" );
         DBTool.INSTANCE.init();
-        List<Scenery_CN_Bean> list = RecordDao.getRecordCN();
-        DBTool.INSTANCE.destroy();
-        return new Gson().toJson( list );
-    }
-
-    @RequestMapping( "/get_recordEN/{search}" )
-    @ResponseBody
-    public String get_recordEN(@PathVariable("search") String data) {
-        DBTool.INSTANCE.init();
-        List<Scenery_EN_Bean> list = RecordDao.getRecordEN(data);
+        List<Scenery_CN_Bean> list = RecordDao.getRecordCN(search);
         DBTool.INSTANCE.destroy();
         return new Gson().toJson( list );
     }
 
     @RequestMapping( "/get_recordEN" )
     @ResponseBody
-    public String get_recordEN() {
+    public String get_recordEN(String search) {
+        System.out.println( "begin to get record\n" );
         DBTool.INSTANCE.init();
-        List<Scenery_EN_Bean> list = RecordDao.getRecordEN();
-        DBTool.INSTANCE.destroy();
-        return new Gson().toJson( list );
-    }
-
-    @RequestMapping( "/get_recordJA/{search}" )
-    @ResponseBody
-    public String get_recordJA(@PathVariable("search") String data) {
-        DBTool.INSTANCE.init();
-        List<Scenery_JA_Bean> list = RecordDao.getRecordJA(data);
+        List<Scenery_EN_Bean> list = RecordDao.getRecordEN(search);
         DBTool.INSTANCE.destroy();
         return new Gson().toJson( list );
     }
 
     @RequestMapping( "/get_recordJA" )
     @ResponseBody
-    public String get_recordJA() {
+    public String get_recordJA(String search) {
+        System.out.println( "begin to get record\n" );
         DBTool.INSTANCE.init();
-        List<Scenery_JA_Bean> list = RecordDao.getRecordJA();
+        List<Scenery_JA_Bean> list = RecordDao.getRecordJA(search);
         DBTool.INSTANCE.destroy();
         return new Gson().toJson( list );
     }
-
 }

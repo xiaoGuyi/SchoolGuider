@@ -6,5 +6,5 @@
 
 <% String path = request.getContextPath(); %>
 <script>
-    location.href = "<%=path%>/test"
+    location.href = "<%=path%>/"
 </script>
