@@ -1,18 +1,14 @@
 {
   "pages": [
-    "pages/scan/scan",
-    
-    "pages/SelectLanguage/SelectLanguage",
-
-    "pages/input/input",
     "pages/index/index",
+     
+    "pages/SelectLanguage/SelectLanguage",
+    "pages/input/input",
+    "pages/scan/scan",
+    "pages/search/search",
     "pages/introduce/introduce",
     "pages/profile/profile",
     "pages/show/show",
-    "pages/search/search",
-    
-    
-   
     "pages/QRCode/QRCode",
     "pages/logs/logs"
   ],
@@ -29,7 +25,7 @@
         "pagePath": "pages/introduce/introduce",
         "iconPath": "./images/introduce1.jpg",
         "text": "",
-      "selectedIconPath":"./images/introduce2.jpg"
+        "selectedIconPath": "./images/introduce2.jpg"
       },
       {
         "pagePath": "pages/profile/profile",
@@ -38,5 +34,6 @@
         "selectedIconPath": "./images/profile2.jpg"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

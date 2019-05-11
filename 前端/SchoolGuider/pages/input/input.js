@@ -50,19 +50,24 @@ Page({
     const that = this;
 
     // 首先把本页内容加载到app.globalData中，然后传到服务器
-    app.globalData.scenicNames += this.data.scenicName + ";";
-    app.globalData.introduces += this.data.introduce + ";";
-    app.globalData.imageNames += this.getImageNameList() + ";";
-    app.globalData.voiceNames += this.data.voiceName + ";";
+    app.globalData.scenicNames += this.data.scenicName;
+    app.globalData.introduces += this.data.introduce;
+    app.globalData.imageNames += this.getImageNameList();
+    app.globalData.voiceNames += this.data.voiceName;
 
     wx.request({
-      url: util.uploadRecordUrls[1],
+      url: util.uploadRecordUrls[this.data.pageIndex],
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      },
       data: {
         "scenicName": app.globalData.scenicNames,
         "introduce": app.globalData.introduces,
         "voiceName": app.globalData.voiceNames,
         "imageNameList": app.globalData.imageNames
       },
+      
       success: function( e ) {
         app.globalData.recordId = e.data;
         app.globalData.scenicNames = "";
