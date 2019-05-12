@@ -6,27 +6,37 @@ Page({
    */
   data: {
     languages: ["","中文", "English", "日语"],
-
+    mode:""
   },
   bindPickerChange: function (e) {
-    // this.setData({
-    //   pageIndex: e.detail.value
-    // })
     wx.navigateBack({
       delta: 1
     })
-
     if(e.detail.value != 0){
-      wx.navigateTo({
-        url: "../input/input?pageIndex=" + (e.detail.value - 1)
-      })
+      if(mode=="add")
+      {
+        wx.navigateTo({
+          url: "../input/input?pageIndex=" + (e.detail.value - 1) + "&mode=add"
+        })
+      }
+      else
+      {
+        wx.navigateTo({
+          url: "../input/input?pageIndex=" + (e.detail.value - 1) + "&mode=change"
+        })
+      }
     }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this;
+    console.log(options.mode);
 
+    that.setData({
+      mode: options.mode
+    })
   },
 
   /**

@@ -17,6 +17,8 @@ Page({
     searchData: "",
     keyword: "",
     cid:0,
+
+    mode:"",
   },
 
   // nextPage() {
@@ -145,6 +147,9 @@ Page({
           wx.showToast({
             title: '上传成功',
           })
+          wx.navigateTo({
+            url: '../index/index',
+          })
         }
       })
     }
@@ -242,7 +247,8 @@ Page({
     console.log( options.pageIndex );
 
     that.setData({
-      pageIndex: parseInt(options.pageIndex)
+      pageIndex: parseInt(options.pageIndex),
+      mode:options.mode
     })
   },
 

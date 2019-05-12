@@ -14,9 +14,14 @@ Page({
       url: "../input/input?pageIndex=0"
     })
   },
-  selectLanguage() {
+  selectLanguage1() {
     wx.navigateTo({
-      url: "../SelectLanguage/SelectLanguage"
+      url: "../SelectLanguage/SelectLanguage?mode=add"
+    })
+  },
+  selectLanguage2() {
+    wx.navigateTo({
+      url: "../SelectLanguage/SelectLanguage?mode=change"
     })
   },
   scanQRCode() {
