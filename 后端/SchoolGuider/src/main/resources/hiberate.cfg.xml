@@ -15,7 +15,6 @@
     <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
 
-    <mapping class="bean.ScenicBean"/>
     <mapping class="bean.Scenery_CN_Bean"/>
     <mapping class="bean.Scenery_EN_Bean"/>
     <mapping class="bean.Scenery_JA_Bean"/>

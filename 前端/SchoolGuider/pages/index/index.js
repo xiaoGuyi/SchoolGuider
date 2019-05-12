@@ -9,11 +9,6 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  generateQRCode() {
-    wx.navigateTo({
-      url: "../input/input?pageIndex=0"
-    })
-  },
   selectLanguage1() {
     wx.navigateTo({
       url: "../SelectLanguage/SelectLanguage?mode=add"
@@ -33,6 +28,71 @@ Page({
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  uploadPic:function(e){
+    wx.navigateTo({
+      url: '../UploadPic/UploadPic',
+    })
+  },
+
+  scan: function (options) {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['从手机相册选择', '扫码'],
+      success: function (res) {
+        that.setData({
+          tapIndex: res.tapIndex
+        })
+        if (that.data.tapIndex == '0') {
+          wx.scanCode({
+            success: (res) => {
+              console.log(res);
+              app.globalData.recordId = res.result.split(":")[1];
+              wx.navigateTo({
+                url: "../Language/Language"
+              })
+            },
+            fail: (res) => {
+              wx.showToast({
+                title: '扫描失败',
+                icon: "none",
+                duration: 1000
+              })
+            },
+          })
+        }
+        else if (that.data.tapIndex == '1') {
+          wx.scanCode({
+            onlyFromCamera: true,
+            success(res) {
+              app.globalData.recordId = res.result.split(":")[1];
+              wx.navigateTo({
+                url: "../Language/Language"
+              })
+            },
+            fail: function(res){
+              wx.showToast({
+                title: '扫描失败',
+                icon: "none",
+                duration: 1000
+              })
+            }
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+  fail: function (res) {
+    console.log(res.errMsg)
+  },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
     })
   },
   onLoad: function () {

@@ -7,7 +7,7 @@ import java.util.Objects;
 @Table( name = "scenery_cn", schema = "guider" )
 public class Scenery_CN_Bean {
     @Id @GeneratedValue( strategy = GenerationType.AUTO )
-    int id;
+    int cid;
     @Basic
     String scenicName;
     @Basic
@@ -19,18 +19,19 @@ public class Scenery_CN_Bean {
 
     public Scenery_CN_Bean() {}
 
-    public Scenery_CN_Bean(String introduce, String voiceName, String imageNameList) {
+    public Scenery_CN_Bean(String introduce, String voiceName, String imageNameList, int cid) {
         this.introduce = introduce;
         this.voiceName = voiceName;
         this.imageNameList = imageNameList;
+        this.cid = cid;
     }
 
-    public int getId() {
-        return id;
+    public int getCid() {
+        return cid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     public String getintroduce() {
@@ -70,7 +71,7 @@ public class Scenery_CN_Bean {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Scenery_CN_Bean that = (Scenery_CN_Bean) o;
-        return id == that.id &&
+        return cid == that.cid &&
                 Objects.equals(introduce, that.introduce) &&
                 Objects.equals(voiceName, that.voiceName) &&
                 Objects.equals(imageNameList, that.imageNameList);
@@ -78,13 +79,13 @@ public class Scenery_CN_Bean {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, introduce, voiceName, imageNameList);
+        return Objects.hash(cid, introduce, voiceName, imageNameList);
     }
 
     @Override
     public String toString() {
         return "Scenery_CN_Bean{" +
-                "id=" + id +
+                "cid=" + cid +
                 ", scenicName='" + scenicName + '\'' +
                 ", introduce='" + introduce + '\'' +
                 ", voiceName='" + voiceName + '\'' +

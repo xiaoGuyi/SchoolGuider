@@ -1,5 +1,5 @@
 // pages/input/input.js
-const util = require( "../../utils/util.js" );
+const util = require("../../utils/util.js");
 const app = getApp();
 var that;
 
@@ -16,10 +16,10 @@ Page({
 
     windowWidth: '',//窗口宽度
     windowHeight: '',//窗口高度
-
+    
     searchData: "",
     keyword: "",
-    cid:0,
+    cid: 0,
   },
 
   chooseSearchResultAction: function (e) {
@@ -73,68 +73,41 @@ Page({
   getImageNameList() {
     var nameList = this.data.imageNames;
     var res = "";
-    console.log( nameList );
-    for( var i = 0; i < nameList.length; ++i ) {
+    console.log(nameList);
+    for (var i = 0; i < nameList.length; ++i) {
       res += nameList[i];
-      console.log( nameList[i] )
+      console.log(nameList[i])
       res += ",";
     }
     return res
   },
 
-  generateQRCode() {
+  updateRecord() {
     wx.showLoading({
       title: "正在生成"
     })
     const that = this;
     console.log("cid:" + that.data.cid)
-    // 首先把本页内容加载到app.globalData中，然后传到服务器
-    wx.request({
-      url: util.uploadRecordUrls[this.data.pageIndex],
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-      },
-      data: {
-        "scenicName": this.data.scenicName,
-        "introduce": this.data.introduce,
-        "voiceName": this.getImageNameList(),
-        "imageNameList": this.data.voiceName,
-        "cid":this.data.cid,
-      },
-      success: function (e) {
-        app.globalData.recordId = e.data;
-        wx.hideLoading();
-        wx.navigateTo({
-          url: "../QRCode/QRCode"
-        })
-      }
-    })
-  },
-
-  submit(){
-  if(that.data.cid!= 0){
-    // 首先把本页内容加载到app.globalData中，然后传到服务器
-    wx.request({
-      url: util.uploadRecordUrls[this.data.pageIndex],
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-      },
-      data: {
-        "scenicName": this.data.scenicName,
-        "introduce": this.data.introduce,
-        "voiceName": this.getImageNameList(),
-        "imageNameList": this.data.voiceName,
-        "cid": this.data.cid
-      },
-      success: function (e) {
-        var judge = e.data;
-        console.log("judge" + judge)
-        wx.hideLoading();
-        if(!isNaN(judge)){
+    if (that.data.cid != 0) {
+      // 首先把本页内容加载到app.globalData中，然后传到服务器
+      console.log(this.data.pageIndex);
+      wx.request({
+        url: util.updateRecordUrls[this.data.pageIndex],//更新地址
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        },
+        data: {
+          "scenicName": this.data.scenicName,
+          "introduce": this.data.introduce,
+          "voiceName": this.getImageNameList(),
+          "imageNameList": this.data.voiceName,
+          "cid": this.data.cid
+        },
+        success: function (e) {
+          wx.hideLoading();
           wx.showModal({
-            title: '上传成功',
+            title: '修改成功',
             showCancel: false,
             success(res) {
               if (res.confirm) {
@@ -145,24 +118,47 @@ Page({
             }
           })
         }
-        else{
-          wx.showModal({
-            title: '该记录已存在',
-            showCancel: false,
-            success(res) {
-            }
-          })
-        }
+      })
+    }
+    else {
+      wx.hideLoading();
+      wx.showModal({
+        title: '请输入并点击对应的中文景点',
+        showCancel: false,
+      })
+    }
+  },
+
+  addImage() {
+    var that = this
+    wx.chooseImage({
+      sourceType: [],
+      success: function (res) {
+        that.setData({
+          imageUrls: that.data.imageUrls.concat(res.tempFilePaths[0])
+        })
+        // 上传视频
+        var uploadUrl = util.uploadFileUrl;
+        wx.uploadFile({
+          url: uploadUrl,
+          filePath: res.tempFilePaths[0],//图片路径，如tempFilePaths[0]
+          name: 'file',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
+          formData: {
+            file_name: res.tempFilePaths[0]
+          },
+          success: function (res) {
+            // res为后台存储的图片名
+            var obj = JSON.parse(res.data);
+            that.setData({
+              imageNames: that.data.imageNames.concat(obj.file_name)
+            });
+          }
+        })
       }
     })
-  }
-    else {
-    wx.hideLoading();
-    wx.showModal({
-      title: '请输入对应的中文景点',
-      showCancel: false,
-    })
-}
   },
 
   uploadVoice() {
@@ -187,7 +183,7 @@ Page({
           },
           success: function (res) {
             wx.hideLoading();
-            console.log( res );
+            console.log(res);
             // res为后台存储的图片名
             var obj = JSON.parse(res.data);
             that.setData({
@@ -206,7 +202,7 @@ Page({
   },
 
   introduceInput(e) {
-    console.log( e.detail.value )
+    console.log(e.detail.value)
     this.setData({
       introduce: e.detail.value
     })
@@ -214,69 +210,68 @@ Page({
 
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
-   that = this;
-   that.setData({
-     pageIndex:parseInt(options.pageIndex)
-   }),
-
-    // 获取手机屏幕宽高
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          windowWidth: res.windowWidth,
-          windowHeight: res.windowHeight,
-        })
-      }
-    })
+    that = this;
+    that.setData({
+      pageIndex: parseInt(options.pageIndex)
+    }),
+      // 获取手机屏幕宽高
+      wx.getSystemInfo({
+        success: function (res) {
+          that.setData({
+            windowWidth: res.windowWidth,
+            windowHeight: res.windowHeight,
+          })
+        }
+      })
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-   onReady: function () {
+  onReady: function () {
 
-   },
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
-   onShow: function () {
+  onShow: function () {
 
-   },
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-   onHide: function () {
+  onHide: function () {
 
-   },
+  },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-   onUnload: function () {
+  onUnload: function () {
 
-   },
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-   onPullDownRefresh: function () {
+  onPullDownRefresh: function () {
 
-   },
+  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-   onReachBottom: function () {
+  onReachBottom: function () {
 
-   },
+  },
 
   /**
    * 用户点击右上角分享
    */
-   onShareAppMessage: function () {
+  onShareAppMessage: function () {
 
-   }
- })
+  }
+})

@@ -13,7 +13,9 @@
     <mvc:resources mapping="/jsps/**" location="/jsp/" />
     <mvc:resources mapping="/css/**" location="/css/" />
     <mvc:resources mapping="/upload/**" location="/upload/" />
-  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <mvc:resources mapping="/record/**" location="/record/" />
+
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     <property name="prefix" value="/jsp/"/>
     <property name="suffix" value=".jsp"/>

@@ -28,9 +28,17 @@ const getRecordUrls = ["http://localhost:8080/school_guider/record/get_recordCN"
                       "http://localhost:8080/school_guider/record/get_recordEN",
                       "http://localhost:8080/school_guider/record/get_recordJA",];
 
+const updateRecordUrls = ["http://localhost:8080/school_guider/record/updateRecordCN",
+                          "http://localhost:8080/school_guider/record/updateRecordEN",
+                          "http://localhost:8080/school_guider/record/updateRecordJA",];
+
+const serverUrl = "http://127.0.0.1:8080/school_guider/upload/";
+
 module.exports = {
   formatTime: formatTime,
   uploadFileUrl: uploadFileUrl,
   uploadRecordUrls: uploadRecordUrls,
-  getRecordUrls: getRecordUrls
+  getRecordUrls: getRecordUrls,
+  updateRecordUrls: updateRecordUrls,
+  serverUrl: serverUrl
 }

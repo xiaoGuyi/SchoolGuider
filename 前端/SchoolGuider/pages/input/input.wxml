@@ -1,6 +1,7 @@
 <!--pages/input/input.wxml-->
 <view style="margin-left: 10rpx;">
 	<view>当前要添加的语种为{{pageIntroduce[pageIndex]}}</view>
+  
 	<view>
 		<text> 景点名称： </text>
 		<input style="display: inline-block; position: relative; top: 10rpx;" placeholder="name" value="" type="text" placeholder-style="custom-placeholder-style" placeholder-class="custom-placeholder-class" bindinput="nameInput" auto-focus/>
@@ -11,29 +12,9 @@
 		<textarea style="height: 160rpx;" maxlength='-1' placeholder="the introduce of the scenic" bindinput="introduceInput"/>
 	</view>
 
-	<!-- <view style="margin-top: 20rpx;">
-		<text> 景点语音： </text>
-		<i-button bind:click="uploadVoice" class="button" inline="true" type="info" size="small">上传文件</i-button>
-	</view> -->
-
-	<!-- <view style="margin-top: 20rpx;">
-		<view><text> 景点图片： </text></view>
-		<block wx:for="{{imageUrls}}">
-			<image style="width: 140rpx; height: 170rpx; margin-left: 20rpx;" mode="" src="{{item}}" binderror="" bindload=""></image>
-		</block>
-		<image style="width: 120rpx; height: 150rpx; margin-left: 20rpx;" mode="" src="../../dist/images/add_image.jpg" binderror="" bindload="" bindtap="addImage"></image>
-	</view> -->
- 
-	<view style="margin-top: 30rpx;" wx:if="{{pageIndex==0}}"> 
-	  <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="generateQRCode">生成二维码</i-button>
-  </view>
-  <view wx:else style="margin-top: 30rpx;"> 
-			<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="generateQRCode">提交内容</i-button>
-  </view>
-
 <block wx:if="{{pageIndex!=0}}"> 
 <view class="search">
-  <input focus='auto' bindinput="searchInputAction" placeholder="输入你要搜索的内容" value="{{keyword}}" />
+  <input focus='auto' bindinput="searchInputAction" placeholder="请输入对应的中文景点" value="{{keyword}}" />
 </view>
 
 <!-- 搜索时内容 -->
@@ -50,5 +31,17 @@
   </block>
 </view>
 </block>
+
+	<!-- <view style="margin-top: 20rpx;">
+		<text> 景点语音： </text>
+		<i-button bind:click="uploadVoice" class="button" inline="true" type="info" size="small">上传文件</i-button>
+	</view> -->
+ 
+	<view style="margin-top: " wx:if="{{pageIndex==0}}"> 
+	  <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="generateQRCode">生成二维码</i-button>
+  </view>
+  <view wx:else style="margin-top:"> 
+			<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="submit">提交内容</i-button>
+  </view>
 
 </view>

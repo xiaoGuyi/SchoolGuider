@@ -4,8 +4,6 @@ import bean.DBTool;
 import bean.Scenery_CN_Bean;
 import bean.Scenery_EN_Bean;
 import bean.Scenery_JA_Bean;
-import bean.ScenicBean;
-import bean.UserRecords;
 import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -13,7 +11,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import tool.BaiduTool;
 import tool.PingAnTool;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +19,6 @@ import java.io.*;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping( "/upload" )
@@ -105,39 +100,50 @@ public class UploadController {
         printWriter.flush();
     }
 
-    @RequestMapping("/uploadRecords")
-    @ResponseBody
-    public String uploadRecords(ScenicBean scenicBean) {
-        System.out.println( "begin to upload record" );
-        System.out.println( scenicBean );
-        ScenicBean scenicBean1 = (ScenicBean) DBTool.INSTANCE.save( scenicBean );
-        return String.valueOf(scenicBean1.getId());
-    }
     @RequestMapping("/uploadRecordsCN")
     @ResponseBody
     public String uploadRecordsCN(Scenery_CN_Bean scenery_CN_Bean) {
         System.out.println( "begin to upload record" );
         System.out.println( scenery_CN_Bean );
+        scenery_CN_Bean.setCid(scenery_CN_Bean.getCid());
         Scenery_CN_Bean scenery_CN_Bean1 = (Scenery_CN_Bean) DBTool.INSTANCE.save(scenery_CN_Bean);
-        return String.valueOf(scenery_CN_Bean1.getId());
+        return String.valueOf(scenery_CN_Bean1.getCid());
     }
+
     @RequestMapping("/uploadRecordsEN")
     @ResponseBody
     public String uploadRecordsEN(Scenery_EN_Bean scenery_EN_Bean) {
         System.out.println( "begin to upload record" );
         System.out.println( scenery_EN_Bean );
-        Scenery_EN_Bean scenery_EN_Bean1 = (Scenery_EN_Bean) DBTool.INSTANCE.save(scenery_EN_Bean);
-        return String.valueOf(scenery_EN_Bean1.getCid());
+        Scenery_EN_Bean scenery_EN_Bean1 = null;;
+        try{
+            scenery_EN_Bean1 = (Scenery_EN_Bean) DBTool.INSTANCE.save(scenery_EN_Bean);
+        }
+        catch (Exception e){
+            return null;
+        }
+        finally {
+            return String.valueOf(scenery_EN_Bean1.getCid());
+        }
+
     }
     @RequestMapping("/uploadRecordsJA")
     @ResponseBody
     public String uploadRecordsJA(Scenery_JA_Bean scenery_JA_Bean) {
         System.out.println( "begin to upload record" );
         System.out.println( scenery_JA_Bean );
-        Scenery_JA_Bean scenery_JA_Bean1 = (Scenery_JA_Bean) DBTool.INSTANCE.save(scenery_JA_Bean);
-        return String.valueOf(scenery_JA_Bean1.getCid());
-    }
+        Scenery_JA_Bean scenery_JA_Bean1=null;
+        try{
+            scenery_JA_Bean1 = (Scenery_JA_Bean) DBTool.INSTANCE.save(scenery_JA_Bean);
+        }
+        catch (Exception e){
+            return null;
+        }
+        finally {
+            return String.valueOf(scenery_JA_Bean1.getCid());
+        }
 
+    }
 
     @RequestMapping("/get_expression")
     public void getExpression(HttpServletRequest request, HttpServletResponse response) throws Exception {

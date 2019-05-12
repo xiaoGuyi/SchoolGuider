@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/UploadPic/UploadPic",
     "pages/search/search",
-    
+    "pages/change/change",
     "pages/Language/Language",
     "pages/scan/scan",
     "pages/SelectLanguage/SelectLanguage",
@@ -12,7 +13,6 @@
     "pages/show/show",
     "pages/QRCode/QRCode",
     "pages/logs/logs"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,7 +27,7 @@
         "pagePath": "pages/introduce/introduce",
         "iconPath": "./images/introduce1.jpg",
         "text": "",
-      "selectedIconPath":"./images/introduce2.jpg"
+        "selectedIconPath": "./images/introduce2.jpg"
       },
       {
         "pagePath": "pages/profile/profile",
@@ -36,5 +36,6 @@
         "selectedIconPath": "./images/profile2.jpg"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

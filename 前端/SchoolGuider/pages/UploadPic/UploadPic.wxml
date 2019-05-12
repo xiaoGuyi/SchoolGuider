@@ -1,0 +1,7 @@
+<view style="margin-top: 20rpx;">
+		<view><text> 景点图片： </text></view>
+		<block wx:for="{{imageUrls}}">
+			<image style="width: 140rpx; height: 170rpx; margin-left: 20rpx;" mode="" src="{{item}}" binderror="" bindload=""></image>
+		</block>
+		<image style="width: 120rpx; height: 150rpx; margin-left: 20rpx;" mode="" src="../../dist/images/add_image.jpg" binderror="" bindload="" bindtap="addImage"></image>
+	</view>

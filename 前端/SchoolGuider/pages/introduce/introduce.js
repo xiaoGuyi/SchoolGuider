@@ -38,11 +38,8 @@ Page({
         var list = e.data;
         for (var i = 0; i < list.length; ++i) {
           var obj = list[i];
-          var id = obj.id;
-          if (app.globalData.index != 0) {
-          id = obj.cid;
-          }
-          if (id == app.globalData.recordId) {
+          var cid = obj.cid;
+          if (cid == app.globalData.recordId) {
             console.log(obj.imageNameList);
             var voiceName = obj.voiceName;
             var scenicName = obj.scenicName;

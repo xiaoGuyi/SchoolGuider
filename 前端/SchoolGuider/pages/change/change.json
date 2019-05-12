@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-button": "/dist/weapp/button/index",
+    "searchHighlightTextView": "../../component/searchHighlightTextView/searchHighlightTextView"
+  }
+}

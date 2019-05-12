@@ -1,0 +1,16 @@
+/* pages/input/input.wxss */
+.button button {
+	height: 60rpx;
+	line-height: 40rpx;
+	padding-top: 10rpx;
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+}
+.search {
+  margin: 50rpx;
+  border: 1rpx solid #eee;
+  padding: 20rpx;
+}
+.search-content-body {
+  margin: 50rpx;
+}

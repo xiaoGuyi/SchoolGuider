@@ -1,0 +1,49 @@
+<!--pages/input/input.wxml-->
+<view style="margin-left: 10rpx;">
+	<view>当前要添加的语种为{{pageIntroduce[pageIndex]}}</view>
+
+	 <block> 
+    <view class="search">
+      <input focus='auto' bindinput="searchInputAction" placeholder="请输入要修改的景点名称" value="{{keyword}}" />
+    </view>
+
+  <!-- 搜索时内容 -->
+    <view wx:if="{{searchData.length > 0}}" class="search-content-body">
+      <block wx:for="{{searchData}}" >
+        <view class="search-result-item" >
+          <searchHighlightTextView 
+          class="result-item" 
+          datas='{{searchData[index]}}' 
+          bindtap="chooseSearchResultAction" 
+          data-id='{{index}}'
+          />
+        </view>
+      </block>
+    </view>
+  </block>
+
+	<view style="margin-top: 20rpx;">
+		<text> 景点介绍： </text>
+		<textarea style="height: 160rpx;" maxlength='-1' placeholder="the introduce of the scenic" bindinput="introduceInput"/>
+	</view>
+
+	<!-- <view style="margin-top: 20rpx;">
+		<text> 景点语音： </text>
+		<i-button bind:click="uploadVoice" class="button" inline="true" type="info" size="small">上传文件</i-button>
+	</view> -->
+
+	<!-- <view style="margin-top: 20rpx;">
+		<view><text> 景点图片： </text></view>
+		<block wx:for="{{imageUrls}}">
+			<image style="width: 140rpx; height: 170rpx; margin-left: 20rpx;" mode="" src="{{item}}" binderror="" bindload=""></image>
+		</block>
+		<image style="width: 120rpx; height: 150rpx; margin-left: 20rpx;" mode="" src="../../dist/images/add_image.jpg" binderror="" bindload="" bindtap="addImage"></image>
+	</view> -->
+ 
+  <view style="margin-top: {{windowHeight-300}}px;"> 
+			<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="updateRecord">提交内容</i-button>
+  </view>
+
+ 
+
+</view>
