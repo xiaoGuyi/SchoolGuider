@@ -31,9 +31,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `scenery_ja` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `imageNameList` varchar(255) DEFAULT NULL,
-  `introcude` varchar(255) DEFAULT NULL,
+  `introduce` mediumtext DEFAULT NULL,
   `voiceName` varchar(255) DEFAULT NULL,
-  `scenicName` varchar(100) NOT NULL
+  `scenicName` varchar(100) NOT NULL,
+  `cid` int(11) NOT NULL unique
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
