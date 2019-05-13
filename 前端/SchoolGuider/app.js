@@ -32,6 +32,13 @@ App({
         }
       }
     })
+
+    wx.getSystemInfo({
+      success: (res) => {
+        this.globalData.height = res.statusBarHeight
+      }
+    })
+
   },
   globalData: {
     userInfo: null,
@@ -41,5 +48,8 @@ App({
     introduces: "",
     imageNames: "",
     voiceNames: "",
+
+    share: false,  // 分享默认为false
+    height: 0,
   }
 })

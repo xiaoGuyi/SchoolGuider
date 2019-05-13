@@ -120,11 +120,10 @@ public class UploadController {
             scenery_EN_Bean1 = (Scenery_EN_Bean) DBTool.INSTANCE.save(scenery_EN_Bean);
         }
         catch (Exception e){
-            return null;
+            return e.getMessage();
         }
-        finally {
             return String.valueOf(scenery_EN_Bean1.getCid());
-        }
+
 
     }
     @RequestMapping("/uploadRecordsJA")
@@ -137,11 +136,9 @@ public class UploadController {
             scenery_JA_Bean1 = (Scenery_JA_Bean) DBTool.INSTANCE.save(scenery_JA_Bean);
         }
         catch (Exception e){
-            return null;
+            return e.getMessage();
         }
-        finally {
             return String.valueOf(scenery_JA_Bean1.getCid());
-        }
 
     }
 

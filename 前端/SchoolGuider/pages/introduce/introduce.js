@@ -21,6 +21,72 @@ Page({
     search:"",
 
     cid:0,
+
+    languages: ["", "中文", "English", "日语"],
+
+  },
+  bindPickerChange: function (e) {
+    var that = this
+    wx.navigateBack({
+      delta: 1
+    })
+    if (e.detail.value != 0) {
+      app.globalData.index = e.detail.value - 1;
+      that.onLoad()
+    }
+  },
+  scan: function (options) {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['从手机相册选择', '扫码'],
+      success: function (res) {
+        that.setData({
+          tapIndex: res.tapIndex
+        })
+        if (that.data.tapIndex == '0') {
+          wx.scanCode({
+            success: (res) => {
+              console.log(res);
+              app.globalData.recordId = res.result.split(":")[1];
+              wx.navigateTo({
+                url: "../Language/Language"
+              })
+            },
+            fail: (res) => {
+              wx.showToast({
+                title: '扫描失败',
+                icon: "none",
+                duration: 1000
+              })
+            },
+          })
+        }
+        else if (that.data.tapIndex == '1') {
+          wx.scanCode({
+            onlyFromCamera: true,
+            success(res) {
+              app.globalData.recordId = res.result.split(":")[1];
+              wx.navigateTo({
+                url: "../Language/Language"
+              })
+            },
+            fail: function (res) {
+              wx.showToast({
+                title: '扫描失败',
+                icon: "none",
+                duration: 1000
+              })
+            }
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+  fail: function (res) {
+    console.log(res.errMsg)
   },
 
   /**
@@ -85,7 +151,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**

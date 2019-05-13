@@ -2,6 +2,7 @@
 
 .bar{
   background-color: #00b7f3;
+  text-align:center;
 }
 .background{
   background-color: #f2f2f2;
@@ -13,4 +14,22 @@
   background-color: #ffffff;
   border-radius: 12px;
   border: solid 1px #5cdbd4
+}
+.selectLanguage{
+  width: 150rpx;
+  height: 150rpx;
+  position: fixed;
+  bottom: 160rpx;
+  right: 10rpx;
+  overflow: visible;
+}
+.scan{
+  width:60rpx;
+  height:50rpx;
+  position:absolute;
+  left: 10px;
+}
+.title{
+  position:relative;
+  color: #ffffff;
 }

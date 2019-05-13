@@ -1,6 +1,7 @@
 {
 	"usingComponents": {
 		"i-button": "/dist/weapp/button/index",
-    "searchHighlightTextView": "../../component/searchHighlightTextView/searchHighlightTextView"
+    "searchHighlightTextView": "../../component/searchHighlightTextView/searchHighlightTextView",
+    "nav-bar": "/component/navbar/navbar"
 	}
 }

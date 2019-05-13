@@ -7,7 +7,15 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+
+    nvabarData: {
+      showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
+      title: '首页', //导航栏 中间的标题
+    },
+
+    // 此页面 页面内容距最顶部的距离
+    height: app.globalData.height * 2 + 20,
   },
   selectLanguage1() {
     wx.navigateTo({
@@ -17,11 +25,6 @@ Page({
   selectLanguage2() {
     wx.navigateTo({
       url: "../SelectLanguage/SelectLanguage?mode=change"
-    })
-  },
-  scanQRCode() {
-    wx.navigateTo({
-      url: "../scan/scan"
     })
   },
   //事件处理函数
@@ -49,8 +52,8 @@ Page({
             success: (res) => {
               console.log(res);
               app.globalData.recordId = res.result.split(":")[1];
-              wx.navigateTo({
-                url: "../Language/Language"
+              wx.switchTab({
+                url: "../introduce/introduce"
               })
             },
             fail: (res) => {
@@ -67,8 +70,8 @@ Page({
             onlyFromCamera: true,
             success(res) {
               app.globalData.recordId = res.result.split(":")[1];
-              wx.navigateTo({
-                url: "../Language/Language"
+              wx.switchTab({
+                url: "../introduce/introduce"
               })
             },
             fail: function(res){

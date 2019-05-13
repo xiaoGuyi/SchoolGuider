@@ -1,8 +1,17 @@
 <import src="../../wxParse/wxParse.wxml"/> 
-<view class="bar" style=' width:{{windowWidth}}px;height:50rpx;z-index:0' ></view>
 
+<view class="bar" style=' width:{{windowWidth}}px;height:{{windowHeight/6}}px;z-index:0' >
+  <text class="title" style='top:{{windowHeight/15}}px;'>景点介绍</text>
+  <cover-image class="scan" src="../../images/camera.jpg" bindtap="scan" style='top:{{windowHeight/15}}px;'></cover-image> 
+</view>
 <view class="background" style=' width:{{windowWidth}}px;height:{{windowHeight}}px;z-index:-1;'>
   <view class="contain" style='width:{{containWidth}}px;height:{{windowHeight}}px;z-index:1;top:-50rpx;position:relative;'>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{languages}}">
+    <view class="picker" style="margin-bottom: 20rpx;">
+      <cover-image src='../../images/snap.png' class="selectLanguage" bindtap='bindPickerChange'></cover-image>
+    </view>
+  </picker>
+    
     <view class="wxParse">
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>

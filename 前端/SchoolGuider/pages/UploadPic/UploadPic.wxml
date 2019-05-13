@@ -1,3 +1,4 @@
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <view style="margin-top: 20rpx;">
 		<view><text> 景点图片： </text></view>
 		<block wx:for="{{imageUrls}}">

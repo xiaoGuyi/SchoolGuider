@@ -1,5 +1,7 @@
 <!--index.wxml-->
-<!-- <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="generateQRCode">生成二维码</i-button> -->
+<!-- 引入自定义组价。'navbar-data'中navbar是自定义名字，决定了组件中'navbarData'的名字 -->
+
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
 <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="selectLanguage1">添加内容</i-button>
 <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="selectLanguage2">修改内容</i-button>
 <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="scan">扫描二维码</i-button>

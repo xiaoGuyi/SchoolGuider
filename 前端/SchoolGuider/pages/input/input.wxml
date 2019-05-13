@@ -1,4 +1,6 @@
 <!--pages/input/input.wxml-->
+<nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+
 <view style="margin-left: 10rpx;">
 	<view>当前要添加的语种为{{pageIntroduce[pageIndex]}}</view>
   

@@ -1,5 +1,6 @@
 {
 	"usingComponents": {
-		"i-button": "/dist/weapp/button/index"
+		"i-button": "/dist/weapp/button/index",
+    "nav-bar": "/component/navbar/navbar"
 	}
 }

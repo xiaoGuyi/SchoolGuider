@@ -1,7 +1,7 @@
-/* pages/introduce/introduce.wxss */
+/* pages/profile/profile.wxss */
 .bar{
   background-color: #00b7f3;
-  height:160rpx;
+  text-align:center;
   z-index:0;
 }
 .background{
@@ -24,7 +24,6 @@
   overflow: visible;
 }
 
-/**index.wxss**/
 .userinfo-avatar {
   position:relative;
   top:-70rpx;
@@ -82,4 +81,8 @@
   font-size: 30rpx;
   margin: 0 auto;
   padding: 0.625rem 0;
+}
+.title{
+  position:relative;
+  color: #ffffff;
 }
