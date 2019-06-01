@@ -1,4 +1,6 @@
 <!--pages/navigate/navigate.wxml-->
+<tabbar tabbar="{{tabbar}}"></tabbar>
+
 <view class='view'>
   <map longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" covers="{{covers}}" style='width:{{windowWidth}}px;height:{{windowHeight}}px;' show-location>
   </map>

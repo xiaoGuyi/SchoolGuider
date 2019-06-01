@@ -6,12 +6,16 @@ Page({
   data: {
     windowWidth: '',//窗口宽度
     windowHeight: '',//窗口高度
+
+    tabbar: {}
   },
   //事件处理函数
   bindViewTap: function () {
 
   },
   onLoad: function () {
+    app.editTabbar();
+
     var that = this
     wx.showLoading({
       title: "定位中",

@@ -1,4 +1,4 @@
-/**app.wxss**/
+
 @import "/wxParse/wxParse.wxss";
 
 
@@ -13,7 +13,7 @@
 } 
 
 .background{
-  overflow: visible;
+  overflow: visible; 
 }
 
 pages {

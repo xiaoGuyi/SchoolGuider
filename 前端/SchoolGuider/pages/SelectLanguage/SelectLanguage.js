@@ -17,9 +17,9 @@ Page({
     height: app.globalData.height * 2 + 20,
   },
   bindPickerChange: function (e) {
-    wx.navigateBack({
-      delta: 1
-    })
+    // wx.navigateBack({
+    //   delta: 0
+    // })
     if(e.detail.value != 0){
       if(this.data.mode=="add")
       {

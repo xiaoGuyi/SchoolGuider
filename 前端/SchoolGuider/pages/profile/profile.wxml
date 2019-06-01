@@ -2,6 +2,8 @@
 <view class="bar" style=' width:{{windowWidth}}px;height:{{windowHeight/4.5}}px;z-index:0' >
   <text class="title" style='top:{{windowHeight/15}}px;'>个人中心</text>
 </view>
+
+<tabbar tabbar="{{tabbar}}"></tabbar>
 <!-- 设置背景 -->
 <view class="background" style=' width:{{windowWidth}}px;height:{{windowHeight}}px;'>
 

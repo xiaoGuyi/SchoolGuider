@@ -2,9 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/introduce/introduce",
+    "pages/startup/startup",
     "pages/profile/profile",
     "pages/map/map",
-    "pages/UploadPic/UploadPic",
+    "pages/uploadFile/uploadFile",
     "pages/change/change",
     "pages/SelectLanguage/SelectLanguage",
     "pages/input/input",
@@ -21,23 +22,19 @@
   },
   "tabBar": {
     "backgroundColor": "#FFFFFF",
+    "selectedColor":"#058ffa",
     "list": [
       {
         "pagePath": "pages/introduce/introduce",
         "iconPath": "./images/introduce1.jpg",
-        "text": "",
+        "text": "景点介绍",
         "selectedIconPath": "./images/introduce2.jpg"
       },
-      {
-        "pagePath": "pages/map/map",
-        "iconPath": "./images/navigate.jpg",
-        "text": "",
-        "selectedIconPath": "./images/navigate.jpg"
-      },
+      
       {
         "pagePath": "pages/profile/profile",
-        "iconPath": "./images/profile.jpg",
-        "text": "",
+        "iconPath": "./images/profile1.jpg",
+        "text": "我的主页",
         "selectedIconPath": "./images/profile2.jpg"
       }
     ]

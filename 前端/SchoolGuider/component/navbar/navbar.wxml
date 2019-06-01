@@ -9,11 +9,11 @@
        <!-- 左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示 -->
        <!-- 从分享进入小程序时 返回上一级按钮不应该存在 -->
       <view bindtap='_navback' wx:if='{{!share}}'>
-        <image src='/images/camera.jpg' mode='aspectFill' class='back-pre'></image>
+        <image src='/images/back.png' mode='aspectFill' class='back-pre'></image>
       </view>
       <view class='navbar-v-line' wx:if='{{!share}}'></view>
       <view bindtap='_backhome'>
-        <image src='/images/camera.jpg' mode='aspectFill' class='back-home'></image>
+        <image src='/images/home.png' mode='aspectFill' class='back-home'></image>
       </view>
     </view>
 

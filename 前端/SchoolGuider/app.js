@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
+    this.hidetabbar();
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -37,9 +38,32 @@ App({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
       }
-    })
-
+    });
   },
+  hidetabbar() {
+    wx.hideTabBar({
+      fail: function () {
+        setTimeout(function () { // 做了个延时重试一次，作为保底。
+          wx.hideTabBar()
+        }, 500)
+      }
+    });
+  },
+  editTabbar: function () {
+    let tabbar = this.globalData.tabBar;
+    let currentPages = getCurrentPages();
+    let _this = currentPages[currentPages.length - 1];
+    let pagePath = _this.route;
+    (pagePath.indexOf('/') != 0) && (pagePath = '/' + pagePath);
+    for (let i in tabbar.list) {
+      tabbar.list[i].selected = false;
+      (tabbar.list[i].pagePath == pagePath) && (tabbar.list[i].selected = true);
+    }
+    _this.setData({
+      tabbar: tabbar
+    });
+  },
+
   globalData: {
     userInfo: null,
     recordId: 0,
@@ -51,5 +75,32 @@ App({
 
     share: false,  // 分享默认为false
     height: 0,
+
+    systemInfo: null,//客户端设备信息
+    tabBar: {
+      "backgroundColor": "#ffffff",
+      "color": "#000000",
+      "selectedColor": "#058ffa",
+      "list": [
+        {
+          "pagePath": "/pages/introduce/introduce",
+          "iconPath": "../../images/introduce1.jpg",
+          "selectedIconPath": "../../images/introduce2.jpg",
+          "text": "景点介绍"
+        },
+        {
+          "pagePath": "/pages/map/map",
+          "iconPath": "../../images/navigate.jpg",
+          "isSpecial": true,
+          "text": "校园地图"
+        },
+        {
+          "pagePath": "/pages/profile/profile",
+          "iconPath": "../../images/profile1.jpg",
+          "selectedIconPath": "../../images/profile2.jpg",
+          "text": "我的主页"
+        }
+      ]
+    }
   }
 })

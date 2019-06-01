@@ -1,6 +1,6 @@
 <import src="../../wxParse/wxParse.wxml"/> 
 <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
-<view style="margin-left: 10rpx;">
+<view style="margin-left: 10rpx;position:absolute;top:200rpx;">
 	<picker bindchange="bindPickerChange" value="{{pageIndex}}" range="{{languages}}">
     <view class="picker" style="margin-bottom: 20rpx;">
       Language{{languages[pageIndex]}}

@@ -13,15 +13,16 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    feedback:'../../images/feedback.jpg',
-    about: '../../images/about.jpg'
+    tabbar: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.editTabbar();
+    app.hidetabbar();
+    
     var that = this;
     // 获取手机屏幕宽高
     wx.getSystemInfo({

@@ -9,6 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabbar: {},
+
     windowWidth: '',//窗口宽度
     windowHeight: '',//窗口高度
     containWidth:'',
@@ -48,9 +50,7 @@ Page({
             success: (res) => {
               console.log(res);
               app.globalData.recordId = res.result.split(":")[1];
-              wx.navigateTo({
-                url: "../Language/Language"
-              })
+              that.onLoad();
             },
             fail: (res) => {
               wx.showToast({
@@ -66,9 +66,7 @@ Page({
             onlyFromCamera: true,
             success(res) {
               app.globalData.recordId = res.result.split(":")[1];
-              wx.navigateTo({
-                url: "../Language/Language"
-              })
+              that.onLoad();
             },
             fail: function (res) {
               wx.showToast({
@@ -93,6 +91,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.editTabbar();
+    app.hidetabbar();
     var that = this;
     
     wx.request({
@@ -111,6 +111,7 @@ Page({
             var scenicName = obj.scenicName;
             var imageNameList = obj.imageNameList;
             var introduce = obj.introduce;
+            console.log("introduce:", introduce)
             var article = '`' + introduce + '`'
             that.setData({
               scenicName: scenicName,

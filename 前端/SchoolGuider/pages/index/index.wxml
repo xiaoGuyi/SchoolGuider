@@ -5,4 +5,4 @@
 <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="selectLanguage1">添加内容</i-button>
 <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="selectLanguage2">修改内容</i-button>
 <i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="scan">扫描二维码</i-button>
-<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="uploadPic">上传图片</i-button>
+<i-button bind:click="handleClick" size="small" type="info" shape="circle" bind:click="uploadFile">上传文件</i-button>

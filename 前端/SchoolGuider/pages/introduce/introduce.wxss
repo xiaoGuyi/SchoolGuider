@@ -13,7 +13,8 @@
 .contain{
   background-color: #ffffff;
   border-radius: 12px;
-  border: solid 1px #5cdbd4
+  border: solid 1px #5cdbd4;
+  overflow:auto;
 }
 .selectLanguage{
   width: 150rpx;

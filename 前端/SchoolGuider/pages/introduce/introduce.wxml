@@ -1,8 +1,9 @@
 <import src="../../wxParse/wxParse.wxml"/> 
+<tabbar tabbar="{{tabbar}}"></tabbar>
 
 <view class="bar" style=' width:{{windowWidth}}px;height:{{windowHeight/6}}px;z-index:0' >
   <text class="title" style='top:{{windowHeight/15}}px;'>景点介绍</text>
-  <cover-image class="scan" src="../../images/camera.jpg" bindtap="scan" style='top:{{windowHeight/15}}px;'></cover-image> 
+  <cover-image class="scan" src="../../images/scan.png" bindtap="scan" style='top:{{windowHeight/15}}px;'></cover-image> 
 </view>
 <view class="background" style=' width:{{windowWidth}}px;height:{{windowHeight}}px;z-index:-1;'>
   <view class="contain" style='width:{{containWidth}}px;height:{{windowHeight}}px;z-index:1;top:-50rpx;position:relative;'>

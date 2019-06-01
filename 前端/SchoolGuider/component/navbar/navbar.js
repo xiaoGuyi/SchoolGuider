@@ -12,7 +12,7 @@ Component({
     //默认值  默认显示左上角
     navbarData: {
       showCapsule: 1
-    }
+    },
   },
   attached: function () {
     // 获取是否是通过分享进入的小程序
@@ -31,7 +31,7 @@ Component({
     },
     //返回到首页
     _backhome() {
-      wx.switchTab({
+      wx.navigateTo({
         url: '/pages/index/index',
       })
     }
