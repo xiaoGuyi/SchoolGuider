@@ -37,18 +37,18 @@ public class Scenery_JA_Bean {
     }
 
     public int getCid() {
-        return id;
+        return cid;
     }
 
-    public void setCid(int id) {
-        this.id = id;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
-    public String getintroduce() {
+    public String getIntroduce() {
         return introduce;
     }
 
-    public void setintroduce(String introduce) {
+    public void setIntroduce(String introduce) {
         this.introduce = introduce;
     }
 

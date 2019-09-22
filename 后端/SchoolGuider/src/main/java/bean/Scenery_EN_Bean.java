@@ -44,11 +44,11 @@ public class Scenery_EN_Bean {
         this.cid = cid;
     }
 
-    public String getintroduce() {
+    public String getIntroduce() {
         return introduce;
     }
 
-    public void setintroduce(String introduce) {
+    public void setIntroduce(String introduce) {
         this.introduce = introduce;
     }
 

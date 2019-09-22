@@ -14,6 +14,7 @@
     <mvc:resources mapping="/css/**" location="/css/" />
     <mvc:resources mapping="/upload/**" location="/upload/" />
     <mvc:resources mapping="/record/**" location="/record/" />
+    <mvc:resources mapping="/icon-font/**" location="/icon-font/" />
 
    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

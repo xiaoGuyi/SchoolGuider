@@ -33,17 +33,20 @@ object DBTool {
     fun update(o: Any){
         init()
         var old: Any
-        if(o is Scenery_CN_Bean){
-            old = session.get(Scenery_CN_Bean::class.java, o.getCid()) as Scenery_CN_Bean
-            old.setintroduce(o.getintroduce())
+        if(o is Scenery_ZH_Bean){
+            old = session.get(Scenery_ZH_Bean::class.java, o.getCid()) as Scenery_ZH_Bean
+            old.setIntroduce(o.getIntroduce())
+            old.setVoiceName(o.getVoiceName())
             session.update(old)
         }else if(o is Scenery_EN_Bean){
             old = session.get(Scenery_EN_Bean::class.java, o.getCid()) as Scenery_EN_Bean
-            old.setintroduce(o.getintroduce())
+            old.setIntroduce(o.getIntroduce())
+            old.setVoiceName(o.getVoiceName())
             session.update(old)
         }else if(o is Scenery_JA_Bean){
             old = session.get(Scenery_JA_Bean::class.java, o.getCid()) as Scenery_JA_Bean
-            old.setintroduce(o.getintroduce())
+            old.setIntroduce(o.getIntroduce())
+            old.setVoiceName(o.getVoiceName())
             session.update(old)
         }
         destroy()

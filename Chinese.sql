@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- 表的结构 `scenic`
 --
 
-CREATE TABLE `scenery_cn` (
+CREATE TABLE `scenery_zh` (
   `cid` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `imageNameList` varchar(255) DEFAULT NULL,
   `introduce` mediumtext DEFAULT NULL,
@@ -36,25 +36,8 @@ CREATE TABLE `scenery_cn` (
   `scenicName` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `scenic`
---
 
---
--- 转储表的索引
---
 
---
--- 表的索引 `scenic`
---
-
---
--- 在导出的表使用AUTO_INCREMENT
---
-
---
--- 使用表AUTO_INCREMENT `scenic`
---
 
 COMMIT;
 

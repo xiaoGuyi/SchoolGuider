@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [11/Jun/2019:10:22:59 +0800] "GET /school_guider/icon-font/icon-font.woff2?84535175 HTTP/1.1" 304 - http-bio-8080-exec-1 89
+0:0:0:0:0:0:0:1 - - [11/Jun/2019:10:29:05 +0800] "GET /school_guider/record/get_recordCN?search= HTTP/1.1" 200 5755 http-bio-8080-exec-3 1674
+127.0.0.1 - - [11/Jun/2019:10:29:05 +0800] "GET /school_guider/upload/1559448739870.mp3 HTTP/1.1" 304 - http-bio-8080-exec-5 41
+0:0:0:0:0:0:0:1 - - [11/Jun/2019:10:32:47 +0800] "GET /school_guider/record/get_recordCN?search= HTTP/1.1" 200 5755 http-bio-8080-exec-7 148
+0:0:0:0:0:0:0:1 - - [11/Jun/2019:10:34:27 +0800] "GET /school_guider/record/get_recordCN?search= HTTP/1.1" 200 5824 http-bio-8080-exec-9 128
+0:0:0:0:0:0:0:1 - - [11/Jun/2019:10:35:30 +0800] "GET /school_guider/record/get_recordCN?search= HTTP/1.1" 200 5854 http-bio-8080-exec-1 116

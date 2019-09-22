@@ -1,3 +1,4 @@
+D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\bean\Scenery_ZH_Bean.java
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\bean\UserDao.java
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\tool\baidu_dependency\BDFactory.java
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\tool\baidu_dependency\FaceV3DetectBean.java
@@ -20,7 +21,6 @@ D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\process_video\ProcessVid
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\tool\pingan_dependency\utils\HMACSHA1.java
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\cn\xsshome\mvcdo\util\AesCbcUtil.java
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\tool\PingAnTool.java
-D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\bean\Scenery_CN_Bean.java
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\tool\pingan_dependency\utils\RSAUtils.java
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\bean\UserRecords.java
 D:\Intellijj攻城狮\后端\SchoolGuider\src\main\java\tool\pingan_dependency\utils\Base64Utils.java
